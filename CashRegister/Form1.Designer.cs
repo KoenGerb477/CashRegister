@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.titleLabel = new System.Windows.Forms.Label();
             this.carrotLabel = new System.Windows.Forms.Label();
-            this.recieptLabel = new System.Windows.Forms.Label();
+            this.receiptLabel = new System.Windows.Forms.Label();
             this.beanLabel = new System.Windows.Forms.Label();
             this.potatoLabel = new System.Windows.Forms.Label();
             this.carrotInput = new System.Windows.Forms.TextBox();
@@ -51,15 +51,17 @@
             this.changeOutput = new System.Windows.Forms.Label();
             this.changeLabel = new System.Windows.Forms.Label();
             this.printButton = new System.Windows.Forms.Button();
+            this.errorLabel = new System.Windows.Forms.Label();
+            this.newOrderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // titleLabel
             // 
             this.titleLabel.BackColor = System.Drawing.Color.Green;
-            this.titleLabel.Font = new System.Drawing.Font("Harlow Solid Italic", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Font = new System.Drawing.Font("Harlow Solid Italic", 19.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.Location = new System.Drawing.Point(-2, -1);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(777, 66);
+            this.titleLabel.Size = new System.Drawing.Size(416, 66);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "The Good Vegetable Store";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -75,16 +77,15 @@
             this.carrotLabel.Text = "Number of Carrots:";
             this.carrotLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // recieptLabel
+            // receiptLabel
             // 
-            this.recieptLabel.BackColor = System.Drawing.Color.White;
-            this.recieptLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.recieptLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recieptLabel.Location = new System.Drawing.Point(443, 87);
-            this.recieptLabel.Name = "recieptLabel";
-            this.recieptLabel.Size = new System.Drawing.Size(307, 541);
-            this.recieptLabel.TabIndex = 2;
-            this.recieptLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.receiptLabel.BackColor = System.Drawing.Color.White;
+            this.receiptLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.receiptLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptLabel.Location = new System.Drawing.Point(443, 87);
+            this.receiptLabel.Name = "receiptLabel";
+            this.receiptLabel.Size = new System.Drawing.Size(307, 486);
+            this.receiptLabel.TabIndex = 2;
             // 
             // beanLabel
             // 
@@ -139,9 +140,9 @@
             this.calculateButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.calculateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.calculateButton.Font = new System.Drawing.Font("Garamond", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calculateButton.Location = new System.Drawing.Point(111, 233);
+            this.calculateButton.Location = new System.Drawing.Point(27, 233);
             this.calculateButton.Name = "calculateButton";
-            this.calculateButton.Size = new System.Drawing.Size(203, 41);
+            this.calculateButton.Size = new System.Drawing.Size(356, 41);
             this.calculateButton.TabIndex = 8;
             this.calculateButton.Text = "Calculate Totals";
             this.calculateButton.UseVisualStyleBackColor = false;
@@ -238,13 +239,14 @@
             // changeButton
             // 
             this.changeButton.BackColor = System.Drawing.Color.White;
+            this.changeButton.Enabled = false;
             this.changeButton.FlatAppearance.BorderSize = 3;
             this.changeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeButton.Font = new System.Drawing.Font("Garamond", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeButton.Location = new System.Drawing.Point(111, 494);
+            this.changeButton.Location = new System.Drawing.Point(30, 494);
             this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(203, 41);
+            this.changeButton.Size = new System.Drawing.Size(353, 41);
             this.changeButton.TabIndex = 18;
             this.changeButton.Text = "Calculate Change";
             this.changeButton.UseVisualStyleBackColor = false;
@@ -274,24 +276,55 @@
             // printButton
             // 
             this.printButton.BackColor = System.Drawing.Color.White;
+            this.printButton.Enabled = false;
             this.printButton.FlatAppearance.BorderSize = 3;
             this.printButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.printButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.printButton.Font = new System.Drawing.Font("Garamond", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printButton.Location = new System.Drawing.Point(111, 587);
+            this.printButton.Location = new System.Drawing.Point(27, 587);
             this.printButton.Name = "printButton";
-            this.printButton.Size = new System.Drawing.Size(203, 41);
+            this.printButton.Size = new System.Drawing.Size(356, 41);
             this.printButton.TabIndex = 21;
             this.printButton.Text = "Print Receipt";
             this.printButton.UseVisualStyleBackColor = false;
             this.printButton.Click += new System.EventHandler(this.printButton_Click);
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.BackColor = System.Drawing.Color.White;
+            this.errorLabel.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorLabel.ForeColor = System.Drawing.Color.Red;
+            this.errorLabel.Location = new System.Drawing.Point(22, 97);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(361, 531);
+            this.errorLabel.TabIndex = 22;
+            this.errorLabel.Text = "ERROR! Please only write numbers in the text boxes!";
+            this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.errorLabel.Visible = false;
+            // 
+            // newOrderButton
+            // 
+            this.newOrderButton.BackColor = System.Drawing.Color.White;
+            this.newOrderButton.FlatAppearance.BorderSize = 3;
+            this.newOrderButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.newOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newOrderButton.Font = new System.Drawing.Font("Garamond", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newOrderButton.Location = new System.Drawing.Point(441, 587);
+            this.newOrderButton.Name = "newOrderButton";
+            this.newOrderButton.Size = new System.Drawing.Size(309, 41);
+            this.newOrderButton.TabIndex = 23;
+            this.newOrderButton.Text = "New Order";
+            this.newOrderButton.UseVisualStyleBackColor = false;
+            this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SaddleBrown;
-            this.ClientSize = new System.Drawing.Size(773, 652);
+            this.ClientSize = new System.Drawing.Size(411, 652);
+            this.Controls.Add(this.newOrderButton);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.changeOutput);
             this.Controls.Add(this.changeLabel);
@@ -311,11 +344,13 @@
             this.Controls.Add(this.carrotInput);
             this.Controls.Add(this.potatoLabel);
             this.Controls.Add(this.beanLabel);
-            this.Controls.Add(this.recieptLabel);
+            this.Controls.Add(this.receiptLabel);
             this.Controls.Add(this.carrotLabel);
             this.Controls.Add(this.titleLabel);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cash Register";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -326,7 +361,7 @@
 
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label carrotLabel;
-        private System.Windows.Forms.Label recieptLabel;
+        private System.Windows.Forms.Label receiptLabel;
         private System.Windows.Forms.Label beanLabel;
         private System.Windows.Forms.Label potatoLabel;
         private System.Windows.Forms.TextBox carrotInput;
@@ -346,6 +381,8 @@
         private System.Windows.Forms.Label changeOutput;
         private System.Windows.Forms.Label changeLabel;
         private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button newOrderButton;
     }
 }
 
