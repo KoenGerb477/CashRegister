@@ -53,6 +53,8 @@
             this.printButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
             this.newOrderButton = new System.Windows.Forms.Button();
+            this.receipt2Label = new System.Windows.Forms.Label();
+            this.inventoryLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -317,12 +319,35 @@
             this.newOrderButton.UseVisualStyleBackColor = false;
             this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
             // 
+            // receipt2Label
+            // 
+            this.receipt2Label.BackColor = System.Drawing.Color.White;
+            this.receipt2Label.Cursor = System.Windows.Forms.Cursors.Default;
+            this.receipt2Label.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receipt2Label.Location = new System.Drawing.Point(639, 201);
+            this.receipt2Label.Name = "receipt2Label";
+            this.receipt2Label.Size = new System.Drawing.Size(111, 235);
+            this.receipt2Label.TabIndex = 24;
+            // 
+            // inventoryLabel
+            // 
+            this.inventoryLabel.AutoSize = true;
+            this.inventoryLabel.Font = new System.Drawing.Font("Garamond", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryLabel.Location = new System.Drawing.Point(14, 65);
+            this.inventoryLabel.Name = "inventoryLabel";
+            this.inventoryLabel.Size = new System.Drawing.Size(328, 14);
+            this.inventoryLabel.TabIndex = 25;
+            this.inventoryLabel.Text = "*Max of 100 carrots, 100 potatoes, and 1000 beans per order.";
+            this.inventoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SaddleBrown;
             this.ClientSize = new System.Drawing.Size(411, 652);
+            this.Controls.Add(this.inventoryLabel);
+            this.Controls.Add(this.receipt2Label);
             this.Controls.Add(this.newOrderButton);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.printButton);
@@ -383,6 +408,8 @@
         private System.Windows.Forms.Button printButton;
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Button newOrderButton;
+        private System.Windows.Forms.Label receipt2Label;
+        private System.Windows.Forms.Label inventoryLabel;
     }
 }
 
