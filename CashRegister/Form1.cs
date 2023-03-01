@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Koen Gerber
+ * ICS3U
+ * March 1st, 2023
+ * Cash Register Project
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,10 +42,13 @@ namespace CashRegister
             InitializeComponent();
         }
 
+        //calculate prices button
         private void calculateButton_Click(object sender, EventArgs e)
         {
+            //try and catch any errors
             try
             {
+                //ding sound whenever button pressed
                 dingPlayer.Play();
 
                 //take vegetable number inputs
@@ -83,9 +93,12 @@ namespace CashRegister
             }
         }
 
+        //when calculate change button is pressed
         private void changeButton_Click(object sender, EventArgs e)
         {
+            //try and catch any errors
             try {
+            //ding when button pressed
             dingPlayer.Play();
 
             //input tendered and calculate change
@@ -121,8 +134,10 @@ namespace CashRegister
             }
         }
 
+        //when print button is pressed...
         private void printButton_Click(object sender, EventArgs e)
         {
+            //print sound while receipt is printing
             printPlayer.Play();
 
             //adjust screen and title size to show receipt
@@ -216,7 +231,7 @@ namespace CashRegister
             calculateButton.Enabled = false;
         }
 
-
+        //reset everything to default when new order button is pressed
         private void newOrderButton_Click(object sender, EventArgs e)
         {
             dingPlayer.Play();
